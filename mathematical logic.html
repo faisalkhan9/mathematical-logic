@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematical Logic</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            background: #101010;
+            color: white;
+            background-color: #fff;
+            color: #101010;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 10px;
+            margin: 30px auto;
+            text-decoration: underline;
+        }
+
+        h3 {
+            display: inline-block;
+            margin: 20px 30px;
+
+            background-color: gold;
+            padding: 4px 10px;
+            color: #1a1a1a;
+            border-radius: 2px;
+        }
+
+        p {
+            margin-left: 50px;
+            margin-right: 20px;
+            line-height: 23px;
+        }
+
+        .sm {
+            display: list-item;
+            margin-left: 90px;
+        }
+
+        table {
+
+            height: 220px;
+            width: 300px;
+            background-color: #000;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+
+        }
+
+        td {
+            width: 100px;
+            text-align: center;
+            background-color: lightgrey;
+        }
+
+        section {
+            min-height: 300px;
+            margin: 20px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .container {
+            height: 220px;
+            width: 300px;
+
+            background: #f2f2f2;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        label {
+            font-size: 22px;
+        }
+
+        input[type="checkbox"] {
+            accent-color: gold;
+            height: 1rem;
+            width: 1rem;
+        }
+
+        .input {
+            background-color: #fff;
+            height: 100%;
+            width: 150px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            border-radius: 8px;
+            color: #fff;
+        }
+
+        .row {
+            min-height: 40px;
+            width: 100px;
+            background-color: #262626;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            border-radius: 4px;
+            padding: 8px 0;
+        }
+
+        .output {
+            height: 100%;
+            width: 150px;
+
+            padding: 30px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .output p {
+            font-size: 16px;
+
+            font-weight: 600;
+            margin: 0 auto;
+
+        }
+
+        .bulb {
+            box-shadow: 0 0 10px #fff, 0 0 40px #fff;
+            background-color: white;
+            height: 80px;
+            width: 80px;
+            border-radius: 50px;
+        }
+
+        .bulb.false {
+            box-shadow: 0 0 10px #ff2828, 0 0 40px #ff2828;
+            background-color: #fff;
+        }
+
+        .bulb.true {
+            box-shadow: 0 0 10px #399918, 0 0 40px #399918;
+            background-color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <h1 class="chapter-name">Mathematical Logic</h1>
+    </header>
+
+    <main>
+
+        <h3>Statements or Propositions</h3>
+        <br>
+        <p>A Declarative Sentence that can either be true or false but not both simultaneously is reffered as a
+            statement or propositions.</p>
+        <p class="sm">for ex - 'One plus three equals four' is a statement</p>
+        <br>
+        <p>Questions, commands, and exclamations are not statements.
+            <br>
+            The simple propositions are represented by the letters p, q, r, s etc. which are known as propositions
+            varibales.
+        </p>
+        <br>
+        <p>some examples :</p>
+        <p class="sm">(i) Where are you going - this is a statement (because it is a question)</p>
+        <p class="sm">(ii) 13 is an even number - this is a statement (because it is false)</p>
+
+        <br>
+        <h3>Compound Proposition and Connectives</h3>
+        <br>
+        <p>A <i>Compound proposition</i>, also known as a Compound statement, is a logical statement formed by combining
+            two or more simpler propositions, using logical operators.</p>
+        <br>
+        <p><i>Connectives</i> are logical operators that are used to combine or modify propositions to form compound
+            statements.</p>
+        <br>
+        <h3>Types of Connectives</h3>
+        <br>
+        <p>The most commonly used Connectives include :</p>
+        <br>
+        <p>Conjunction (AND) :</p>
+        <p class="sm">It is denoted by the symbol "&and;". It is true only when both component propositions are true.
+        </p>
+        <br>
+        <p>Disjunction (OR) :</p>
+        <p class="sm">It is denoted by the symbol "&or;". It is true when at least one of the component propositions is
+            true.</p>
+        <br>
+        <p>Negation (NOT) :</p>
+        <p class="sm">It is denoted by the symbol "&sim;". It negates the truth value of a proposition, turning true
+            into false and false into true.</p>
+        <br>
+        <p>Implication (IF - THEN) :</p>
+        <p class="sm">It is denoted by the symbol "&rarr;" or "&rArr;".</p>
+        <p class="sm">It expresses a conditional relationship between two propositions. It is false only when the
+            antecedent (if-part) is true and the consequent (then-part) is false.</p>
+        <br>
+        <p>Biconditional (IF AND ONLY IF) :</p>
+        <p class="sm">It is denoted by the symbol "&harr;" or sometimes "&hArr;".</p>
+        <p class="sm">It indicated that two propositions are true or false together.</p>
+        <p class="sm">It is true when both propositions have the same truth value.</p>
+
+        <br>
+        <h3>Truth Table</h3>
+        <br>
+        <p>Truth tables are a methodological technique to express the potential truth values of compound statements
+            depending on the potential truth values of their component propositions</p>
+        <br>
+        <p>They provide a clear and concise method to analyse and evaluate the truth values of complex logical
+            expressoions.</p>
+        <br>
+        <p>To construct a truth table, follow these steps :</p>
+        <p class="sm">Identify the simple propositions involved in the compound propositions.</p>
+        <p class="sm">Determine the number of rows needed in the truth table based on the number of simple propositions.
+            For n component propositions, there will be 2 <sup>n</sup> rows.</p>
+        <p class="sm">Assign truth values (true or False) to the simple propositions for each row in a systematic
+            manner.</p>
+        <p class="sm">Evaluate the truth value of the compound proposition based on the truth values assigned to the
+            component propositions</p>
+
+        <br> <br> <br>
+
+        <h3>Truth Table of p&and;q</h3>
+
+        <section class="conjunction">
+
+            <div class="truth-table">
+                <table id="conjunction">
+                    <tr>
+                        <th>p</th>
+                        <th>q</th>
+                        <th>p&and;q</th>
+                    </tr>
+                    <tr>
+                        <td>T</td>
+                        <td>T</td>
+                        <td>T</td>
+                    </tr>
+                    <tr>
+                        <td>T</td>
+                        <td>F</td>
+                        <td>F</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>T</td>
+                        <td>F</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>F</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="container">
+                <div class="input">
+                    <div class="row">
+                        <label for="con-p">p</label>
+                        <input type="checkbox" name="" id="con-p" onclick="con()">
+                    </div>
+                    <div class="row">
+                        <label for="con-q">q</label>
+                        <input type="checkbox" name="" id="con-q" onclick="con()">
+                    </div>
+                </div>
+                <div class="output">
+
+                    <div class="bulb false" id="con-bulb"></div>
+                    <p id="con-value">False</p>
+                </div>
+            </div>
+        </section>
+
+
+        <h3>Truth table of p&or;q</h3>
+        <section class="disjunction">
+
+            <div class="truth-table">
+                <table id="disjunction">
+                    <tr>
+                        <th>p</th>
+                        <th>q</th>
+                        <th>p&or;q</th>
+                    </tr>
+                    <tr>
+                        <td>T</td>
+                        <td>T</td>
+                        <td>T</td>
+                    </tr>
+                    <tr>
+                        <td>T</td>
+                        <td>F</td>
+                        <td>T</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>T</td>
+                        <td>T</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>F</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="container">
+                <div class="input">
+                    <div class="row">
+                        <label for="dis-p">p</label>
+                        <input type="checkbox" name="" id="dis-p" onclick="dis()">
+                    </div>
+                    <div class="row">
+                        <label for="dis-q">q</label>
+                        <input type="checkbox" name="" id="dis-q" onclick="dis()">
+                    </div>
+                </div>
+                <div class="output">
+
+                    <div class="bulb false" id="dis-bulb"></div>
+                    <p id="dis-value">False</p>
+                </div>
+            </div>
+        </section>
+
+        <h3>Truth table of &sim;p</h3>
+        <section class="disjunction">
+
+            <div class="truth-table">
+                <table id="disjunction">
+                    <tr>
+                        <th>p</th>
+                        <th>&sim;p</th>
+
+                    </tr>
+                    <tr>
+                        <td>T</td>
+                        <td>F</td>
+
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>T</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <div class="container">
+                <div class="input">
+                    <div class="row">
+                        <label for="sim-p">p</label>
+                        <input type="checkbox" name="" id="sim-p" onclick="sim()">
+                    </div>
+
+                </div>
+                <div class="output">
+
+                    <div class="bulb true" id="sim-bulb"></div>
+                    <p id="sim-value">True</p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <h3>Truth table of p&rarr;q</h3>
+        <section class="ifthen">
+
+            <div class="truth-table">
+                <table id="ifthen">
+                    <tr>
+                        <th>p</th>
+                        <th>q</th>
+                        <th>p&rarr;q</th>
+                    </tr>
+                    <tr>
+                        <td>T</td>
+                        <td>T</td>
+                        <td>T</td>
+                    </tr>
+                    <tr>
+                        <td>T</td>
+                        <td>F</td>
+                        <td>F</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>T</td>
+                        <td>T</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>T</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="container">
+                <div class="input">
+                    <div class="row">
+                        <label for="ifthen-p">p</label>
+                        <input type="checkbox" name="" id="ifthen-p" onclick="ifthen()">
+                    </div>
+                    <div class="row">
+                        <label for="ifthen-q">q</label>
+                        <input type="checkbox" name="" id="ifthen-q" onclick="ifthen()">
+                    </div>
+                </div>
+                <div class="output">
+
+                    <div class="bulb true" id="ifthen-bulb"></div>
+                    <p id="ifthen-value">True</p>
+                </div>
+            </div>
+        </section>
+
+
+        <h3>Truth table of p&harr;q</h3>
+        <section class="onlyif">
+
+            <div class="truth-table">
+                <table id="onlyif">
+                    <tr>
+                        <th>p</th>
+                        <th>q</th>
+                        <th>p&harr;q</th>
+                    </tr>
+                    <tr>
+                        <td>T</td>
+                        <td>T</td>
+                        <td>T</td>
+                    </tr>
+                    <tr>
+                        <td>T</td>
+                        <td>F</td>
+                        <td>F</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>T</td>
+                        <td>F</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>F</td>
+                        <td>T</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="container">
+                <div class="input">
+                    <div class="row">
+                        <label for="onlyif-p">p</label>
+                        <input type="checkbox" name="" id="onlyif-p" onclick="onlyif()">
+                    </div>
+                    <div class="row">
+                        <label for="onlyif-q">q</label>
+                        <input type="checkbox" name="" id="onlyif-q" onclick="onlyif()">
+                    </div>
+                </div>
+                <div class="output">
+
+                    <div class="bulb true" id="onlyif-bulb"></div>
+                    <p id="onlyif-value">True</p>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <script>
+
+        function con() {
+
+            const conp = document.getElementById('con-p').checked;
+            const conq = document.getElementById('con-q').checked;
+            const firstBulb = document.getElementById('con-bulb');
+
+
+            if (conp && conq) {
+
+                firstBulb.classList.remove(false);
+                firstBulb.classList.add(true);
+
+                document.getElementById('con-value').innerHTML = "True";
+
+            }
+            else {
+                firstBulb.classList.remove(true);
+                firstBulb.classList.add(false);
+                document.getElementById('con-value').innerHTML = "False";
+            }
+        }
+
+        function dis() {
+
+            const disp = document.getElementById('dis-p').checked;
+            const disq = document.getElementById('dis-q').checked;
+            const secondBulb = document.getElementById('dis-bulb');
+
+
+            if (disp || disq) {
+
+                secondBulb.classList.remove(false);
+                secondBulb.classList.add(true);
+                document.getElementById('dis-value').innerHTML = "True";
+
+            }
+            else {
+                secondBulb.classList.remove(true);
+                secondBulb.classList.add(false);
+                document.getElementById('dis-value').innerHTML = "False";
+            }
+        }
+
+        function sim() {
+
+            const simp = document.getElementById('sim-p').checked;
+            const thirdBulb = document.getElementById('sim-bulb');
+
+            if (simp) {
+
+                thirdBulb.classList.remove(true);
+                thirdBulb.classList.add(false);
+                document.getElementById('sim-value').innerHTML = "False";
+            }
+            else {
+                thirdBulb.classList.remove(false);
+                thirdBulb.classList.add(true);
+                document.getElementById('sim-value').innerHTML = "True";
+            }
+        }
+
+        function ifthen() {
+
+            const ifthenp = document.getElementById('ifthen-p').checked;
+            const ifthenq = document.getElementById('ifthen-q').checked;
+            const firstBulb = document.getElementById('ifthen-bulb');
+
+
+            if (ifthenp && !ifthenq) {
+
+                firstBulb.classList.remove(true);
+                firstBulb.classList.add(false);
+
+                document.getElementById('ifthen-value').innerHTML = "False";
+
+            }
+            else {
+                firstBulb.classList.remove(false);
+                firstBulb.classList.add(true);
+                document.getElementById('ifthen-value').innerHTML = "True";
+            }
+        }
+
+        function onlyif() {
+
+            const onlyifp = document.getElementById('onlyif-p').checked;
+            const onlyifq = document.getElementById('onlyif-q').checked;
+            const firstBulb = document.getElementById('onlyif-bulb');
+
+
+            if (onlyifp && !onlyifq || !onlyifp && onlyifq) {
+
+                firstBulb.classList.remove(true);
+                firstBulb.classList.add(false);
+
+                document.getElementById('onlyif-value').innerHTML = "False";
+
+            }
+
+            else {
+                firstBulb.classList.remove(false);
+                firstBulb.classList.add(true);
+                document.getElementById('onlyif-value').innerHTML = "True";
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>
